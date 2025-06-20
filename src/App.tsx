@@ -1,24 +1,44 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import MainCard from './components/MainCard/MainCard';
+import VariantCard from './components/VariantCard/VariantCard';
+import Button from './components/Button/Button';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MainCard />
+
+      <ul className="variants__list">
+        <li className="variants__item">
+          <VariantCard />
+        </li>
+        <li className="variants__item">
+          <VariantCard />
+        </li>
+        <li className="variants__item">
+          <VariantCard />
+        </li>
+        <li className="variants__item">
+          <VariantCard />
+        </li>
+        <li className="variants__item">
+          <VariantCard />
+        </li>
+        <li className="variants__item">
+          <VariantCard />
+        </li>
+      </ul>
+
+      <ul className="controls__list">
+        <li className="control__item">
+          <Button text={"Previous"}/>
+        </li>
+        <li className="control__item">
+          <Button text={"Next"}/>
+        </li>
+      </ul>
     </div>
   );
 }

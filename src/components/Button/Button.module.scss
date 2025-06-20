@@ -1,0 +1,20 @@
+@use '../../styles/helpers' as *;
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D8E2FF;
+
+    font-size: rem(28);
+    border: 1px solid var(--color-dark);
+    padding-block: rem(25);
+    padding-inline: rem(60);
+    width: rem(350);
+    height: rem(100);
+    border-radius: rem(10);
+
+    @include hover {
+        background-color: #a1b8ff;
+    }
+}

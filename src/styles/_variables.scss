@@ -1,0 +1,15 @@
+@use 'helpers' as *;
+
+:root {
+    --color-light: #FFFFFF;
+    --color-dark: #000000;
+    --transition-duration: 0.2s;
+
+    --container-width: #{rem(1600)};
+    --container-padding-x: #{rem(20)};
+
+    @include laptop {
+        --container-width: #{rem(1440)};
+
+    }
+}
