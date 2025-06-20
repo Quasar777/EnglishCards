@@ -15,8 +15,8 @@
 
 .controls__list {
     margin-top: rem(70);
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);  
+    display: flex;
+    justify-content: center;
     gap: rem(30);
 }
 

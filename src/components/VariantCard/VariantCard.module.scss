@@ -18,4 +18,17 @@
         background-color: #dfdfdf88;
         cursor: pointer;
     }
+
+    &.correct {
+        background-color: #a4f3a4;
+    }
+
+    &.wrong {
+        background-color: #f3a4a4;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.6;
+    }
 }
