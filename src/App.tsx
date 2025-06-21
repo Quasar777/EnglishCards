@@ -8,12 +8,11 @@ import { words } from './fakeData';
 import { Word } from './types/word';
 
 function App() {
-
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [currentVariants, setCurrentVariants] = useState<Word[]>([]);
   const [currentWord, setCurrentWord] = useState<Word | null>(null);
   const [selectedTranslation, setSelectedTranslation] = useState<string | null>(null); 
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null); 
+  const [answerCount, setAnswerCount] = useState<number>(0);
 
   useEffect(() => {
     const shuffled = [...words].sort(() => Math.random() - 0.5);
@@ -24,9 +23,13 @@ function App() {
   }, []);
 
   const handleAnswer = (translation: string) => {
+    const isAnswerCorrect = translation === currentWord?.translation;
     if (selectedTranslation !== null) return; 
     setSelectedTranslation(translation);
-    setIsAnswerCorrect(translation === currentWord?.translation);
+    setIsAnswerCorrect(isAnswerCorrect);
+    if (isAnswerCorrect) {
+      setAnswerCount(answerCount + 1);
+    }
   }
 
   const generateNewWords = () => {
@@ -46,6 +49,10 @@ function App() {
   
   return (
     <div className="App">
+      <div className='answerCount'>
+        <p className='answerCount__text'>Правильных ответов: {answerCount.toString()}</p>
+      </div>
+
       <MainCard 
         text={currentWord?.word}
         isCorrect={isAnswerCorrect}  
