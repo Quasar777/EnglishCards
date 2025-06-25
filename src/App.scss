@@ -29,5 +29,14 @@
 .answerCount {
     position: absolute;
     left: 3%;
+
+    &__galochka {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+
+        &.visible {
+            opacity: 1;
+        }
+    }
 }
 

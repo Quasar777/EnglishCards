@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import MainCard from './components/MainCard/MainCard';
@@ -13,6 +13,8 @@ function App() {
   const [selectedTranslation, setSelectedTranslation] = useState<string | null>(null); 
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null); 
   const [answerCount, setAnswerCount] = useState<number>(0);
+  const [isCheckVisible, setIsCheckVisible] = useState(false);
+
 
   useEffect(() => {
     if(answerCount >= 10) {
@@ -35,7 +37,19 @@ function App() {
     setIsAnswerCorrect(isAnswerCorrect);
     if (isAnswerCorrect) {
       setAnswerCount(answerCount + 1);
+      blinkGalochka();
+      setTimeout(() => { 
+        generateNewWords();
+      }, 1000)
     }
+  }
+
+  const blinkGalochka = () => {
+    setIsCheckVisible(true);
+
+    setTimeout(() => {
+      setIsCheckVisible(false);
+    }, 1000)
   }
 
   const generateNewWords = () => {
@@ -56,7 +70,12 @@ function App() {
   return (
     <div className="App">
       <div className='answerCount'>
-        <p className='answerCount__text'>Правильных ответов: {answerCount.toString()}</p>
+       <p className='answerCount__text'>
+        Правильных ответов: {answerCount}
+        <span className={isCheckVisible ? "answerCount__galochka visible" : "answerCount__galochka"}>
+          &nbsp;✅
+        </span>        
+      </p>
       </div>
 
       <MainCard 
@@ -84,10 +103,6 @@ function App() {
           <Button onClick={() => generateNewWords()} text={"Next"}/>
         </li>
       </ul>
-
-      <div>
-        <input type="text" name="" id="" />
-      </div>
     </div>
   );
 }
