@@ -15,6 +15,12 @@ function App() {
   const [answerCount, setAnswerCount] = useState<number>(0);
 
   useEffect(() => {
+    if(answerCount >= 10) {
+      console.log("Новое достижение: 10 правильных ответов!")
+    }
+  }, [answerCount])
+
+  useEffect(() => {
     const shuffled = [...words].sort(() => Math.random() - 0.5);
     const selectedVariants = shuffled.slice(0, 6);
     setCurrentVariants(selectedVariants);
@@ -78,6 +84,10 @@ function App() {
           <Button onClick={() => generateNewWords()} text={"Next"}/>
         </li>
       </ul>
+
+      <div>
+        <input type="text" name="" id="" />
+      </div>
     </div>
   );
 }
