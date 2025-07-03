@@ -17,6 +17,8 @@ function App() {
 
 
   // проверка 
+  // проверка 
+  // проверка 
 
   useEffect(() => {
     if(answerCount >= 10) {
