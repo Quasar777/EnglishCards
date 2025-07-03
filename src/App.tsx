@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import MainCard from './components/MainCard/MainCard';
@@ -15,6 +15,10 @@ function App() {
   const [answerCount, setAnswerCount] = useState<number>(0);
   const [isCheckVisible, setIsCheckVisible] = useState(false);
 
+
+  // проверка 
+  // проверка 
+  // проверка 
 
   useEffect(() => {
     if(answerCount >= 10) {

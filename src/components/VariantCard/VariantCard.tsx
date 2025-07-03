@@ -1,3 +1,4 @@
+import { memo } from "react";
 import classes from "./VariantCard.module.scss";
 
 interface VariantCardProps {
@@ -8,7 +9,7 @@ interface VariantCardProps {
   isDisabled?: boolean;
 }
 
-const VariantCard = ({
+const VariantCard = memo(({
   text,
   onClick,
   isCorrect,
@@ -33,7 +34,7 @@ const VariantCard = ({
       <p className={classes.variantCard__text}>{text}</p>
     </div>
   );
-};
+});
 
 export default VariantCard;
 
